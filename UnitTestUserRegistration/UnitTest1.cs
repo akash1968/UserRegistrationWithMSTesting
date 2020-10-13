@@ -30,5 +30,17 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        [TestMethod]
+        public void TestEmailId()
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+            string input = "abc.xyz@yahoo.com";
+            //Act
+            bool var = pattern.EmailidValidation(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }

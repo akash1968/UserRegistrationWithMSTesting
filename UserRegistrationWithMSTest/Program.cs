@@ -21,6 +21,13 @@ namespace UserRegistrationWithMSTest
                 Console.WriteLine("Enter a valid Last Name with first letter as Capital and minimum 3 character");
                 lastName = Console.ReadLine();
             }
+            Console.WriteLine("Enter a valid Email Id: ");
+            String email = Console.ReadLine();
+            while (!val.EmailidValidation(email))
+            {
+                Console.WriteLine("Email Id is not valid. Enter Again: ");
+                email = Console.ReadLine();
+            }
 
 
         }
