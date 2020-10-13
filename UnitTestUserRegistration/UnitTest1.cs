@@ -106,5 +106,20 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        [TestMethod]
+        [DataRow("akash@gmail.com", true)]
+        [DataRow("akash-1997@gmail.com", true)]
+        [DataRow("akash@.com.in", false)]
+        //All Email Samples
+        public void TestEmails(string input, bool expected)
+        {
+            //Arrange
+            Validation pattern = new Validation();
+           
+            //Act
+            bool var = pattern.ValidateEmailSet(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }
