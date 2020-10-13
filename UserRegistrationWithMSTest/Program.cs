@@ -68,7 +68,14 @@ namespace UserRegistrationWithMSTest
                 Console.WriteLine("Enter a password with minimum 8 characters and Alteast One Upper Case and alteast One Number ");
                 password3 = Console.ReadLine();
             }
-
+            // UC8 Password Rule4 Validation
+            Console.WriteLine("Enter a password: ");
+            String password4 = Console.ReadLine();
+            while (!val.PasswordValidationRule4(password4))
+            {
+                Console.WriteLine("Enter a password with minimum 8 characters and Alteast One Upper Case and alteast One Number and Atleast One Special Character ");
+                password4 = Console.ReadLine();
+            }
         }
     }
 }

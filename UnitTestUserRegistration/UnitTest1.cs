@@ -93,5 +93,18 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        [TestMethod]
+        //Password Rule 4 -Atleast One Special Character
+        public void TestPasswordRule4()
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+            string input = "A22@#sdfghjkl";
+            //Act
+            bool var = pattern.PasswordValidationRule4(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }
