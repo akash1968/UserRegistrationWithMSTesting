@@ -72,5 +72,11 @@ namespace UserRegistrationWithMSTest
             else
                 return false;
         }
+        public static string Email_Regex = "^[a-zA-Z0-9]+([.+_-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]{2})?$";
+        public bool ValidateEmailSet(string email)
+        {
+            return Regex.IsMatch(email, Email_Regex);
+        }
+
     }
 }

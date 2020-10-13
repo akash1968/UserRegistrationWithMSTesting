@@ -2,8 +2,9 @@
 
 namespace UserRegistrationWithMSTest
 {
-    class Program
+    public class Program
     {
+       
         static void Main(string[] args)
         {
             Validation val = new Validation();
@@ -76,6 +77,15 @@ namespace UserRegistrationWithMSTest
                 Console.WriteLine("Enter a password with minimum 8 characters and Alteast One Upper Case and alteast One Number and Atleast One Special Character ");
                 password4 = Console.ReadLine();
             }
+
+           //UC9 All Email Samples
+           
+
+            Console.WriteLine("Registration Successful.");
+            Console.WriteLine("Name of the User :" + firstName + " " + lastName);
+            Console.WriteLine("Email ID of User : " + email);
+            Console.WriteLine("Mobile Number of User: " + mobileNo);
+          
         }
     }
 }
