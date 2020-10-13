@@ -15,5 +15,14 @@ namespace UserRegistrationWithMSTest
             else
                 return false;
         }
+        public Boolean LastNameValidation(string lastName)
+        {
+
+            Regex regularExpression = new Regex("^[A-Z][a-z]{2,}$");
+            if (regularExpression.IsMatch(lastName))
+                return true;
+            else
+                return false;
+        }
     }
 }
