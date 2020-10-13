@@ -28,6 +28,13 @@ namespace UserRegistrationWithMSTest
                 Console.WriteLine("Email Id is not valid. Enter Again: ");
                 email = Console.ReadLine();
             }
+            Console.WriteLine("Enter the Mobile Number of the User: ");
+            String mobileNo = Console.ReadLine();
+            while (!val.MobileNumberValidation(mobileNo))
+            {
+                Console.WriteLine("Enter a 10 digit mobile number preceeded with country code: ");
+                mobileNo = Console.ReadLine();
+            }
 
 
         }

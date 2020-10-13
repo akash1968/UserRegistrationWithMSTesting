@@ -42,5 +42,17 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        [TestMethod]
+        public void TestMobileNumber()
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+            string input = "91 9988776655";
+            //Act
+            bool var = pattern.MobileNumberValidation(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }
