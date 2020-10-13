@@ -64,5 +64,13 @@ namespace UserRegistrationWithMSTest
             else
                 return false;
         }
+        public Boolean PasswordValidationRule4(string password4)
+        {
+            Regex regularExpression = new Regex(@"(^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#+-\._])[A-Za-z0-9@#-+\._]{8,}$)"); //UC8 Password Rule 4
+            if (regularExpression.IsMatch(password4))
+                return true;
+            else
+                return false;
+        }
     }
 }
