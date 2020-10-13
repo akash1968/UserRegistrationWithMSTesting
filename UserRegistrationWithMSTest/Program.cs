@@ -52,13 +52,21 @@ namespace UserRegistrationWithMSTest
                 Console.WriteLine("Enter a password with minimum 8 characters ");
                 password1 = Console.ReadLine();
             }
-            // UC6 Password Rule Validation
+            // UC6 Password Rule2 Validation
             Console.WriteLine("Enter a password: ");
             String password2 = Console.ReadLine();
             while (!val.PasswordValidationRule2(password2))
             {
                 Console.WriteLine("Enter a password with minimum 8 characters and Alteast One Upper Case ");
                 password2 = Console.ReadLine();
+            }
+            // UC7 Password Rule3 Validation
+            Console.WriteLine("Enter a password: ");
+            String password3 = Console.ReadLine();
+            while (!val.PasswordValidationRule3(password3))
+            {
+                Console.WriteLine("Enter a password with minimum 8 characters and Alteast One Upper Case and alteast One Number ");
+                password3 = Console.ReadLine();
             }
 
         }

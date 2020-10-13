@@ -80,5 +80,18 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        [TestMethod]
+        //Password Rule 3 -Atleast One Number
+        public void TestPasswordRule3()
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+            string input = "A22sdfghjkl";
+            //Act
+            bool var = pattern.PasswordValidationRule3(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }
