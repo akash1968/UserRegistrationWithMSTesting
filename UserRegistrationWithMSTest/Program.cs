@@ -44,15 +44,22 @@ namespace UserRegistrationWithMSTest
                 mobileNo = Console.ReadLine();
             }
 
-            // UC5 Password Rule 1 Validation
+            // UC5 Password Rule1 Validation
             Console.WriteLine("Enter a password: ");
             String password1 = Console.ReadLine();
-            while (!val.PasswordValidation(password1))
+            while (!val.PasswordValidationRule1(password1))
             {
                 Console.WriteLine("Enter a password with minimum 8 characters ");
                 password1 = Console.ReadLine();
             }
-
+            // UC6 Password Rule Validation
+            Console.WriteLine("Enter a password: ");
+            String password2 = Console.ReadLine();
+            while (!val.PasswordValidationRule2(password2))
+            {
+                Console.WriteLine("Enter a password with minimum 8 characters and Alteast One Upper Case ");
+                password2 = Console.ReadLine();
+            }
 
         }
     }

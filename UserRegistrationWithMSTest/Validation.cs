@@ -40,10 +40,18 @@ namespace UserRegistrationWithMSTest
             else
                 return false;
         }
-        public Boolean PasswordValidation(string password1)
+        public Boolean PasswordValidationRule1(string password1)
         {
             Regex regularExpression = new Regex(@"(^[A-Za-z0-9]{8,}$)");
             if (regularExpression.IsMatch(password1))
+                return true;
+            else
+                return false;
+        }
+        public Boolean PasswordValidationRule2(string password2)
+        {
+            Regex regularExpression = new Regex(@"(^(?=.*[A-Z])[A-Za-z0-9@#-+]{8,}$)"); //UC6 Password Rule 2
+            if (regularExpression.IsMatch(password2))
                 return true;
             else
                 return false;
