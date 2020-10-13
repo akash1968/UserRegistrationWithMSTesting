@@ -18,5 +18,17 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        [TestMethod]
+        public void TestLastName()
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+            string input = "Singh";
+            //Act
+            bool var = pattern.LastNameValidation(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }
