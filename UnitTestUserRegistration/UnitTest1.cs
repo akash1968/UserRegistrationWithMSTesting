@@ -121,5 +121,24 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        //UC10 Validation By Junit Test
+        [TestMethod]
+        public void TestMethod1()
+        {
+            string expected = "HAPPY";
+            string message = "I am HAPPY";
+            Validation validation = new Validation();
+            string actual = validation.MoodAnalyser(message);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            string expected = "HAPPY";
+            string message = "I am SAD";
+            Validation validation = new Validation();
+            string actual = validation.MoodAnalyser(message);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

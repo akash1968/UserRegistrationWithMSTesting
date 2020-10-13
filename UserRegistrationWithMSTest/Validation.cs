@@ -78,5 +78,12 @@ namespace UserRegistrationWithMSTest
             return Regex.IsMatch(email, Email_Regex);
         }
 
+        public string MoodAnalyser(string message)
+        {
+            if (message.Contains("HAPPY"))
+                return "HAPPY";
+            else
+                return "SAD";
+        }
     }
 }
