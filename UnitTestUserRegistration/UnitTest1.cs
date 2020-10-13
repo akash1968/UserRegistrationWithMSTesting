@@ -55,6 +55,7 @@ namespace UnitTestUserRegistration
             Assert.AreEqual(expected, var);
         }
         [TestMethod]
+        //Password Rule 1 -Minimum 8 Character
         public void TestPasswordRule1()
         {
             //Arrange
@@ -62,7 +63,20 @@ namespace UnitTestUserRegistration
             bool expected = true;
             string input = "asdfghjkl";
             //Act
-            bool var = pattern.PasswordValidation(input);
+            bool var = pattern.PasswordValidationRule1(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
+        [TestMethod]
+        //Password Rule 2 -Atleast One Upper Character
+        public void TestPasswordRule2()
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+            string input = "Asdfghjkl";
+            //Act
+            bool var = pattern.PasswordValidationRule2(input);
             //Assert
             Assert.AreEqual(expected, var);
         }
