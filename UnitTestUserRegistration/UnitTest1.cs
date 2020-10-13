@@ -54,5 +54,17 @@ namespace UnitTestUserRegistration
             //Assert
             Assert.AreEqual(expected, var);
         }
+        [TestMethod]
+        public void TestPasswordRule1()
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+            string input = "asdfghjkl";
+            //Act
+            bool var = pattern.PasswordValidation(input);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }
