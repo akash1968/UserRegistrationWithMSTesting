@@ -140,5 +140,22 @@ namespace UnitTestUserRegistration
             string actual = validation.MoodAnalyser(message);
             Assert.AreEqual(expected, actual);
         }
+        //UC11 Test For Multiple Entry
+        [TestMethod]
+        [DataRow("akash@gmail.com")]
+        [DataRow("akash1997@gmail.com")]
+        [DataRow("akash@gmail")]
+        
+        public void TestMultipleEntry(string email)
+        {
+            //Arrange
+            Validation pattern = new Validation();
+            bool expected = true;
+
+            //Act
+            bool var = pattern.EmailidValidation(email);
+            //Assert
+            Assert.AreEqual(expected, var);
+        }
     }
 }
