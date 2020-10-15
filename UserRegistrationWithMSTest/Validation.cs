@@ -25,7 +25,7 @@ namespace UserRegistrationWithMSTest
             }
             catch
             {
-                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.WRONG_MOBILENUMBER, "Invalid Entry");
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.WRONG_EMAIL, "Invalid Entry");
             }
         }
         public string isValidName(string Name)
@@ -39,7 +39,7 @@ namespace UserRegistrationWithMSTest
             }
             catch
             {
-                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.WRONG_MOBILENUMBER, "Invalid Entry");
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.WRONG_FIRSTNAME, "Invalid Entry");
             }
         }
         public string isValidMobileNumber(string mobileNumber)
@@ -68,7 +68,7 @@ namespace UserRegistrationWithMSTest
             }
             catch
             {
-                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.WRONG_MOBILENUMBER, "Invalid Entry");
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.WRONG_PASSWORD, "Invalid Entry");
             }
         }
     }
