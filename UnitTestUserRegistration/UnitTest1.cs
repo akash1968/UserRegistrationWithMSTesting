@@ -6,156 +6,122 @@ namespace UnitTestUserRegistration
     [TestClass]
     public class UnitTest1
     {
+        public static bool actual = true;
+        [TestCategory("Names")]
         [TestMethod]
-        public void TestFirstName()
+        public void TestingInputForFirstName()
         {
             //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "Akash";
+            Validation userDataValidation = new Validation();
             //Act
-            bool var = pattern.FirstNameValidation(input);
-            //Assert
-            Assert.AreEqual(expected, var);
+            try
+            {
+                string expected = userDataValidation.isValidName("akash");
+            }
+            catch (UserRegistrationCustomException exception)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Entry", exception.Message);
+            }
         }
-        [TestMethod]
-        public void TestLastName()
-        {
-            //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "Singh";
-            //Act
-            bool var = pattern.LastNameValidation(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        [TestMethod]
-        public void TestEmailId()
-        {
-            //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "abc.xyz@yahoo.com";
-            //Act
-            bool var = pattern.EmailidValidation(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        [TestMethod]
-        public void TestMobileNumber()
-        {
-            //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "91 9988776655";
-            //Act
-            bool var = pattern.MobileNumberValidation(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        [TestMethod]
-        //Password Rule 1 -Minimum 8 Character
-        public void TestPasswordRule1()
-        {
-            //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "asdfghjkl";
-            //Act
-            bool var = pattern.PasswordValidationRule1(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        [TestMethod]
-        //Password Rule 2 -Atleast One Upper Character
-        public void TestPasswordRule2()
-        {
-            //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "Asdfghjkl";
-            //Act
-            bool var = pattern.PasswordValidationRule2(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        [TestMethod]
-        //Password Rule 3 -Atleast One Number
-        public void TestPasswordRule3()
-        {
-            //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "A22sdfghjkl";
-            //Act
-            bool var = pattern.PasswordValidationRule3(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        [TestMethod]
-        //Password Rule 4 -Atleast One Special Character
-        public void TestPasswordRule4()
-        {
-            //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-            string input = "A22@#sdfghjkl";
-            //Act
-            bool var = pattern.PasswordValidationRule4(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        [TestMethod]
-        [DataRow("akash@gmail.com", true)]
-        [DataRow("akash-1997@gmail.com", true)]
-        [DataRow("akash@.com.in", false)]
-        //All Email Samples
-        public void TestEmails(string input, bool expected)
-        {
-            //Arrange
-            Validation pattern = new Validation();
-           
-            //Act
-            bool var = pattern.ValidateEmailSet(input);
-            //Assert
-            Assert.AreEqual(expected, var);
-        }
-        //UC10 Validation By Junit Test
-        [TestMethod]
-        public void TestMethod1()
-        {
-            string expected = "HAPPY";
-            string message = "I am HAPPY";
-            Validation validation = new Validation();
-            string actual = validation.MoodAnalyser(message);
-            Assert.AreEqual(expected, actual);
-        }
-        [TestMethod]
-        public void TestMethod2()
-        {
-            string expected = "HAPPY";
-            string message = "I am SAD";
-            Validation validation = new Validation();
-            string actual = validation.MoodAnalyser(message);
-            Assert.AreEqual(expected, actual);
-        }
-        //UC11 Test For Multiple Entry
-        [TestMethod]
-        [DataRow("akash@gmail.com")]
-        [DataRow("akash1997@gmail.com")]
-        [DataRow("akash@gmail")]
         
-        public void TestMultipleEntry(string email)
+        // To test the Last name
+        
+        [TestCategory("Names")]
+        [TestMethod]
+        public void TestingInputForLastName()
         {
             //Arrange
-            Validation pattern = new Validation();
-            bool expected = true;
-
-            //Act
-            bool var = pattern.EmailidValidation(email);
-            //Assert
-            Assert.AreEqual(expected, var);
+           Validation userDataValidation = new Validation();
+            try
+            {
+                string expected = userDataValidation.isValidName("singh");
+            }
+            catch (UserRegistrationCustomException exception)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Entry", exception.Message);
+            }
         }
+        
+        // To test the mobile number matching case
+       
+        [TestCategory("Mobile Number")]
+        [TestMethod]
+        public void TestingInputForMobileNumber()
+        {
+            //Arrange
+           Validation userDataValidation = new Validation();
+            try
+            {
+                string expected = userDataValidation.isValidMobileNumber("8855779966");
+            }
+            catch (UserRegistrationCustomException exception)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Entry", exception.Message);
+            }
+        }
+   
+        // To test the e-mail matching case
+        
+        [TestCategory("E-Mail")]
+        [TestMethod]
+        public void TestingInputForEmailId()
+        {
+            //Arrange
+            Validation userDataValidation = new Validation();
+            try
+            {
+                string expected = userDataValidation.isValidEmailID("aaa.reerr@gmail.com");
+            }
+            catch (UserRegistrationCustomException exception)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Entry", exception.Message);
+            }
+        }
+        
+        // Test Case For Multiple Email Entries
+        
+        [DataRow("akashsingh@gmail.co.in")]
+        [DataRow("akash-singh@gmail.co.in")]
+        [DataRow("akashsingh@gmail.co.us")]
+        [TestCategory("Validate Multiple E-Mail")]
+        [TestMethod]
+        public void TestingInputForMultipleEmailId(string emailId)
+        {
+            //Arrange
+            Validation userDataValidation = new Validation();
+            try
+            {
+                string expected = userDataValidation.isValidEmailID(emailId);
+                Assert.AreEqual("Correct Entry", expected);
+            }
+            catch (UserRegistrationCustomException exception)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Entry", exception.Message);
+            }
+        }
+      
+        // To test the password matching case
+   
+        [TestCategory("Password")]
+        [TestMethod]
+        public void TestingInputForPassword()
+        {
+            //Arrange
+            Validation userDataValidation = new Validation();
+            try
+            {
+                string expected = userDataValidation.isValidPassword("akash243@ddd");
+            }
+            catch (UserRegistrationCustomException exception)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Entry", exception.Message);
+            }
+        }      
     }
 }
